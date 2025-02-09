@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <style xmlns="http://www.w3.org/2000/svg">
+        path {
+            stroke: #000;
+        }
+
+        :hover {
+            stroke: #000;
+        }
+    </style>
+    <script type='text/javascript'>
+        google.charts.load('current', {
+            'packages': ['geochart'],
+        });
+        google.charts.setOnLoadCallback(drawMarkersMap);
+
+        function drawMarkersMap() {
+            var data = google.visualization.arrayToDataTable([
+                ['State', 'Visited', { type: 'string', role: 'tooltip' }],
+                ['Alabama', 2, ''],
+                ['Alaska', 1, ''],
+                ['Arizona', 2, ''],
+                ['Arkansas', 2, ''],
+                ['California', 2, ''],
+                ['Colorado', 2, ''],
+                ['Connecticut', 2, ''],
+                ['Delaware', 2, ''],
+                ['Florida', 2, ''],
+                ['Georgia', 2, ''],
+                ['Hawaii', 2, ''],
+                ['Idaho', 2, ''],
+                ['Illinois', 2, ''],
+                ['Indiana', 2, ''],
+                ['Iowa', 2, ''],
+                ['Kansas', 2, ''],
+                ['Kentucky', 1, ''],
+                ['Louisiana', 2, ''],
+                ['Maine', 2, ''],
+                ['Maryland', 2, ''],
+                ['Massachusetts', 2, ''],
+                ['Michigan', 1, ''],
+                ['Minnesota', 1, ''],
+                ['Mississippi', 2, ''],
+                ['Missouri', 2, ''],
+                ['Montana', 1, ''],
+                ['Nebraska', 2, ''],
+                ['Nevada', 2, ''],
+                ['New Hampshire', 2, ''],
+                ['New Jersey', 2, ''],
+                ['New Mexico', 2, ''],
+                ['New York', 2, ''],
+                ['North Carolina', 2, ''],
+                ['North Dakota', 1, ''],
+                ['Ohio', 2, ''],
+                ['Oklahoma', 2, ''],
+                ['Oregon', 2, ''],
+                ['Pennsylvania', 2, ''],
+                ['Rhode Island', 2, ''],
+                ['South Carolina', 2, ''],
+                ['South Dakota', 1, ''],
+                ['Tennessee', 2, ''],
+                ['Texas', 2, ''],
+                ['Utah', 2, ''],
+                ['Vermont', 2, ''],
+                ['Virginia', 2, ''],
+                ['Washington', 2, ''],
+                ['West Virginia', 2, ''],
+                ['Wisconsin', 1, ''],
+                ['Wyoming', 2, '']
+            ])
+
+            var options = {
+                sizeAxis: { minValue: 0, maxValue: 100 },
+                region: 'US', // Western Europe
+                resolution: 'provinces',
+                colorAxis: { colors: ['white', 'purple'] },
+                datalessRegionColor: 'white',
+                legend: 'none',
+                enableRegionInteractivity: true,
+                tooltip: { isHtml: true },
+                keepAspectRatio: true
+            };
+
+            var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        };
+    </script>
+</head>
+
+<body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>
